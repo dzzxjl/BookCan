@@ -1,4 +1,4 @@
-package hello;
+package com.dzzxjl.model;
 
 /**
  * Created by dzzxjl on 2017/7/13.

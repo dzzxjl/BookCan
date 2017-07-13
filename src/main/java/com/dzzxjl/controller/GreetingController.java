@@ -1,5 +1,7 @@
-package hello;
+package com.dzzxjl.controller;
 
+import com.dzzxjl.model.Goodbye;
+import com.dzzxjl.model.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
