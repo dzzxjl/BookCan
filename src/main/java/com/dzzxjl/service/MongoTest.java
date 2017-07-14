@@ -4,6 +4,14 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by dzzxjl on 2017/7/13.
@@ -14,19 +22,19 @@ public class MongoTest {
             // To connect to mongodb server
             MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
             // Now connect to your databases
-            DB db = mongoClient.getDB( "test" );
+            MongoDatabase mongoDatabase = mongoClient.getDatabase("test");
+//            mongoClient.getDatabase("test").getCollection()
             System.out.println("Connect to database successfully");
-//            boolean auth = db.authenticate(myUserName, myPassword);
-//            System.out.println("Authentication: "+auth);
-//            DBCollection coll = db.createCollection("newcol",);
-            DBCollection coll = db.getCollection("mycol");
-            DBCursor cursor = coll.find();
-            int i = 0;
-            while (cursor.hasNext()) {
-                System.out.println("Updated Document: "+i);
-                System.out.println(cursor.next());
-                i++;
-            }
+//            MongoCollection<Document> coll = mongoDatabase.getCollection("mycol");
+//            mongoDatabase.createCollection("newcol");
+            MongoCollection<Document> newcoll = mongoDatabase.getCollection("newcoll");
+            Document document = new Document("name","yanghaoyu")
+                    .append("sex","male")
+                    .append("age",22);
+            List<Document> documents = new ArrayList<Document>();
+            documents.add(document);
+            newcoll.insertMany(documents);
+            System.out.println("success!");
 
         }catch(Exception e){
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
