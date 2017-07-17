@@ -1,4 +1,4 @@
-package com.dzzxjl.service;
+package com.dzzxjl.util;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;

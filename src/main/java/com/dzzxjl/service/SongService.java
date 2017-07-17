@@ -22,4 +22,16 @@ public class SongService {
 
         return  songList;
     }
+
+    public boolean addSong(Song song) {
+        Song temp = song;
+        System.out.println(temp);
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println();
+        System.out.println(new SongService().getSongList());
+    }
 }

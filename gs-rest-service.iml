@@ -60,5 +60,15 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:8.5.14" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:8.5.14" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.eclipse.jdt.core.compiler:ecj:4.6.1" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:org.springframework.jdbc:3.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:org.springframework.beans:3.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:org.springframework.asm:3.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:org.springframework.core:3.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:org.springframework.transaction:3.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.aopalliance:com.springsource.org.aopalliance:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:org.springframework.aop:3.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:org.springframework.context:3.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:org.springframework.expression:3.1.2.RELEASE" level="project" />
   </component>
 </module>

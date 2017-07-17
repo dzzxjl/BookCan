@@ -48,6 +48,28 @@
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!--jdbc连接操作-->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/org.springframework.jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.jdbc</artifactId>
+            <version>3.1.2.RELEASE</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/org.springframework.transaction -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.transaction</artifactId>
+            <version>3.1.2.RELEASE</version>
+        </dependency>
+
+
     </dependencies>
 
     <properties>

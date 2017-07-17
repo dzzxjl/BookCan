@@ -37,4 +37,9 @@ public class Song {
     public void setSinger(String singer) {
         this.singer = singer;
     }
+
+    @Override
+    public String toString() {
+        return "[id:" + id +  "; name:" + name + "; singer: " + singer  + "]";
+    }
 }
