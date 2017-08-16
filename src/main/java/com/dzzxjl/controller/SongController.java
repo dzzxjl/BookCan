@@ -1,9 +1,9 @@
 package com.dzzxjl.controller;
 
-import com.dzzxjl.model.Song;
+import com.dzzxjl.domain.Song;
 import com.dzzxjl.service.SongService;
+import com.dzzxjl.service.impl.SongServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +17,9 @@ import java.util.List;
 @RestController
 public class SongController {
 
-
-
-//    public SongService songService = new SongService();
-
     @Autowired
-    public SongService songService;
+    SongServiceImpl songService;
+
 
     @RequestMapping("/getsong")
     public List<Song> getSongList() {
