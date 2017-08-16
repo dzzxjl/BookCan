@@ -1,9 +1,9 @@
 # BookCan
 BookCan，中文即书罐
 ## 技术
-* Spring Boot
+* Spring Boot——内嵌tomcat，app.java入口启动
 * Spring Data JPA
-* 前端
+* BootStrap
 
 ## 关于
 ### Book can?
