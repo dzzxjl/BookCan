@@ -1,8 +1,9 @@
 # BookCan
 BookCan，中文即书罐
-## 技术
+## 技术栈
 * Spring Boot——内嵌tomcat，app.java入口启动
 * Spring Data JPA
+* jQuery -> Angular js
 * BootStrap
 
 ## 关于
