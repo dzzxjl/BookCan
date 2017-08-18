@@ -4,6 +4,8 @@ import com.dzzxjl.domain.Song;
 import com.dzzxjl.repository.SongRepository;
 import com.dzzxjl.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,16 +17,19 @@ import java.util.List;
 @Service
 public class SongServiceImpl implements SongService{
     @Autowired
-    SongRepository songRepository;
-
-
-    private List<Song> songList = new ArrayList<>();
-
-    public List<Song> getSongList() {
-        return this.songRepository.findAll();
-    }
+//    SongRepository songRepository;
+    RedisTemplate redisTemplate;
 
     public void addSong(Song song) {
-        this.songRepository.save(song);
+//        this.songRepository.save(song);
+        ValueOperations<String, Song> valueOper = redisTemplate.opsForValue();
+        valueOper.set(song.getName(), song);
+    }
+
+
+
+    @Override
+    public Song getSong() {
+        return null;
     }
 }

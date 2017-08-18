@@ -5,6 +5,7 @@ BookCan，中文即书罐
 * Spring Data JPA
 * jQuery -> Angular js
 * BootStrap
+* 项目调试热加载
 
 ## 关于
 ### Book can?
