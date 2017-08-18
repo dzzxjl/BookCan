@@ -1,10 +1,9 @@
 package com.dzzxjl.domain;
 
+import org.hibernate.annotations.Generated;
 import org.springframework.data.repository.cdi.Eager;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by dzzxjl on 2017/8/16.
@@ -12,6 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Book {
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long bid;
     @Column
     private String name;
