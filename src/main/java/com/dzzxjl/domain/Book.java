@@ -13,7 +13,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long bid;
-    @Column
+    @Column(name = "name")
     private String name;
     @Column
     private String tag;

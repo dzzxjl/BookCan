@@ -10,7 +10,6 @@ import java.util.List;
  */
 @Service
 public interface SongService {
-    // 不需要加访问权限
-    List<Song> getSongList();
+    Song getSong();
     void addSong(Song song);
 }
