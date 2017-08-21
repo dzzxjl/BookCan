@@ -1,4 +1,6 @@
 # BookCan
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
+ 
 BookCan，中文即书罐
 ## 技术栈
 * Spring Boot——内嵌tomcat，app.java入口启动
