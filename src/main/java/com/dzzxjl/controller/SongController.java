@@ -21,11 +21,11 @@ public class SongController {
     SongServiceImpl songService;
 
 
-    @RequestMapping("/getsong")
-    public List<Song> getSongList() {
-        List<Song> songList = songService.getSongList();
-        return songList;
-    }
+//    @RequestMapping("/getsong")
+//    public List<Song> getSongList() {
+//        List<Song> songList = songService.getSongList();
+//        return songList;
+//    }
 
     @RequestMapping("/addSong")
     public boolean addSong(@RequestParam(value = "id") int id,
