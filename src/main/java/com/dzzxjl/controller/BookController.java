@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.SchemaOutputResolver;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,8 +29,10 @@ public class BookController {
 
     @RequestMapping("/bookcan")
     @ResponseBody
-    public List<Book> getBookList() {
+    public List<Book> getBookList(HttpServletRequest request) {
         List<Book> bookList = null;
+//        System.out.println(re\);
+        System.out.println(request.getCookies());
         bookList = (List<Book>) this.bookRepository.findAll();
         return bookList;
     }
@@ -54,8 +59,10 @@ public class BookController {
 
     @RequestMapping("/bookmore")
     @ResponseBody
-    public Book getBook(long id) {
+    public Book getBook(HttpServletResponse response, long id) {
+        response.addCookie(new Cookie("name", "yanghaoyu"));
         return this.bookRepository.findOne(id);
+
     }
 
     @RequestMapping("/addbook")
@@ -82,8 +89,9 @@ public class BookController {
 
     @RequestMapping("/deletebook")
     @ResponseBody
-    public void deleteBook(long id) {
+    public List<Book> deleteBook(long id) {
         this.bookRepository.delete(id);
+        return (List<Book>) this.bookRepository.findAll();
     }
     @RequestMapping("/thy")
     public String  thy(Model model) {
