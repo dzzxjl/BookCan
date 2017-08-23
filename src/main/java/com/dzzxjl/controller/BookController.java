@@ -3,6 +3,7 @@ package com.dzzxjl.controller;
 import com.dzzxjl.domain.Book;
 import com.dzzxjl.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +30,9 @@ public class BookController {
 
     @RequestMapping("/bookcan")
     @ResponseBody
-    public List<Book> getBookList(HttpServletRequest request) {
+    public List<Book> getBookList(HttpServletRequest request, HttpServletResponse response) {
         List<Book> bookList = null;
+
 //        System.out.println(re\);
         System.out.println(request.getCookies());
         bookList = (List<Book>) this.bookRepository.findAll();
@@ -39,7 +41,8 @@ public class BookController {
 
     @RequestMapping("/bookcancount")
     @ResponseBody
-    public Integer getBookListCount() {
+    public Integer getBookListCount(HttpServletResponse response) {
+        response.addCookie(new Cookie("lang","java"));
         return (int) this.bookRepository.count();
     }
 
@@ -59,8 +62,10 @@ public class BookController {
 
     @RequestMapping("/bookmore")
     @ResponseBody
-    public Book getBook(HttpServletResponse response, long id) {
-        response.addCookie(new Cookie("name", "yanghaoyu"));
+    public Book getBook(HttpServletRequest request, HttpServletResponse response, long id) {
+        System.out.println(request.getCookies()[0]);
+        System.out.println(request.getCookies());
+        response.addCookie(new Cookie("name", "dzzxjl"));
         return this.bookRepository.findOne(id);
 
     }

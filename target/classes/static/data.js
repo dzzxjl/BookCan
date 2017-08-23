@@ -1,4 +1,4 @@
-$.get("/booklist",function(data,status){
+$.get("http://localhost:8080/booklist",function(data,status){              
               $.each(data, function(i, item){
                   $("#table").append(
                       "<tr>" + 

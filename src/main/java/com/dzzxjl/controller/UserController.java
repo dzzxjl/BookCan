@@ -26,15 +26,15 @@ public class UserController {
     public User login(HttpServletRequest request,
                       HttpServletResponse response,
                       String email, String password) {
-        Cookie cookie = new Cookie("email","dzzxjl@126.com");
+        Cookie cookie = new Cookie("email","dzzxjl126.com");
         //设置Maximum Age
-        cookie.setMaxAge(1000);
+//        cookie.setMaxAge(1000);
         //设置cookie路径为当前项目路径
-        cookie.setPath(request.getContextPath());
+//        cookie.setPath(request.getContextPath());
         response.addCookie(cookie);
 //        response.addCookie(new Cookie("email","dzzxjl@126.com"));
-
-        System.out.println(request.getCookies());
+        response.addCookie(new Cookie("xingbie", "nan"));
+//        System.out.println(request.getCookies());
         System.out.println(request.getSession().getId());
 //        request.getSession().setAttribute();
 //        response.addCookie(new Cookie());
