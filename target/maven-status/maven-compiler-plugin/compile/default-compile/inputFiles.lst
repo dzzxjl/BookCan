@@ -1,0 +1,16 @@
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/repository/BookRepository.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/service/SongService.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/domain/ImageCode.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/repository/UserRepository.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/App.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/domain/Song.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/domain/User.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/repository/SongRepository.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/controller/BookController.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/tools/CORSConfiguration.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/service/impl/SongServiceImpl.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/controller/UserController.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/tools/RedisConfig.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/controller/ImageController.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/controller/SongController.java
+/Users/dzzxjl/gitlab/gs-rest-service/initial/src/main/java/com/dzzxjl/domain/Book.java
