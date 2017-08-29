@@ -5,9 +5,9 @@ BookCan，中文即书罐
 ## 技术栈
 * Spring Boot——内嵌tomcat，app.java入口启动
 * Spring Data JPA
-* jQuery -> Angular js
+* jQuery ajax
 * BootStrap
-* 项目调试热加载
+* Spring Boot热加载
 
 ## 关于
 ### Book can?
