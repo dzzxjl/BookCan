@@ -12,6 +12,7 @@ import java.util.List;
 public interface BookRepository extends CrudRepository<Book, Long> {
 
     List<Book> findByTag(String tag);
+    List<Book> findByUid(Long uid);
 //    使用原生语句
 //    @Query(value = "SELECT * FROM book WHERE status=0", nativeQuery = true)
 

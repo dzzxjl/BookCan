@@ -2,6 +2,7 @@ package com.dzzxjl.domain;
 
 import org.hibernate.annotations.Generated;
 import org.springframework.data.repository.cdi.Eager;
+import org.springframework.stereotype.Controller;
 
 import javax.persistence.*;
 
@@ -19,6 +20,17 @@ public class Book {
     private String tag;
     @Column
     private int status;
+    @Column
+    private long uid;
+
+    public long getUid() {
+        return uid;
+    }
+
+    public void setUid(long uid) {
+        this.uid = uid;
+    }
+
 
     public Long getBid() {
         return bid;

@@ -2,19 +2,16 @@ package com.dzzxjl.controller;
 
 import com.dzzxjl.domain.Book;
 import com.dzzxjl.repository.BookRepository;
+import com.dzzxjl.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.SchemaOutputResolver;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -27,6 +24,8 @@ public class BookController {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    UserRepository userRepository;
 
     @RequestMapping("/bookcan")
     @ResponseBody
@@ -63,16 +62,25 @@ public class BookController {
     @RequestMapping("/bookmore")
     @ResponseBody
     public Book getBook(HttpServletRequest request, HttpServletResponse response, long id) {
-        System.out.println(request.getCookies()[0]);
-        System.out.println(request.getCookies());
+//        System.out.println(request.getCookies()[0]);
+//        System.out.println(request.getCookies());
         response.addCookie(new Cookie("name", "dzzxjl"));
         return this.bookRepository.findOne(id);
 
     }
 
-    @RequestMapping("/addbook")
+    @RequestMapping(value = "/addbook", produces = "application/json; charset=utf-8")
     @ResponseBody
-    public List<Book> addBook(String name, String tag, int status) {
+    public List<Book> addBook(String name, String tag, int status, String email) {
+        System.out.println("添加新书时，获取用户的email，从而查询uid" + email);
+        Long uid = 0L;
+        List<com.dzzxjl.domain.User> userList = this.userRepository.findAll();
+        for (com.dzzxjl.domain.User user : userList) {
+            if (user.getEmail().equals(email)) {
+                uid = user.getUid();
+            }
+        }
+
         // 重复查询
         Iterator<Book> iterator = this.bookRepository.findAll().iterator();
         while (iterator.hasNext()) {
@@ -80,16 +88,16 @@ public class BookController {
 //            System.out.println(temp);
             if(temp.equals(name)) {
                 return null;
-
             }
         }
         Book book1 = new Book();
         book1.setName(name);
         book1.setTag(tag);
         book1.setStatus(status);
+        book1.setUid(uid);
         this.bookRepository.save(book1);
 
-        return (List<Book>) this.bookRepository.findAll();
+        return (List<Book>) this.bookRepository.findByUid(uid);
     }
 
     @RequestMapping("/deletebook")

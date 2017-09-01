@@ -1,10 +1,13 @@
 package com.dzzxjl.controller;
 
+import com.dzzxjl.domain.Book;
 import com.dzzxjl.domain.User;
+import com.dzzxjl.repository.BookRepository;
 import com.dzzxjl.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
@@ -21,35 +24,59 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    BookRepository bookRepository;
 
-    @RequestMapping("/login")
-    public User login(HttpServletRequest request,
+    // 接收post请求
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public void temp() {
+        System.out.println("get请求");
+    }
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    // 返回书罐信息
+    public List<Book> login(HttpServletRequest request,
                       HttpServletResponse response,
                       String email, String password) {
+
+        System.out.println("数据" + request.getParameter("email"));
         Cookie cookie = new Cookie("email","dzzxjl126.com");
-        //设置Maximum Age
-//        cookie.setMaxAge(1000);
-        //设置cookie路径为当前项目路径
-//        cookie.setPath(request.getContextPath());
         response.addCookie(cookie);
-//        response.addCookie(new Cookie("email","dzzxjl@126.com"));
         response.addCookie(new Cookie("xingbie", "nan"));
-//        System.out.println(request.getCookies());
         System.out.println(request.getSession().getId());
-//        request.getSession().setAttribute();
-//        response.addCookie(new Cookie());
         Iterator<User> iterator = (Iterator<User>) this.userRepository.findAll().iterator();
         while (iterator.hasNext()) {
             User user = (User) iterator.next();
             if(user.getEmail().equals(email)) {
                 if (user.getPassword().equals(password)) {
-                    return user;
+                    return this.bookRepository.findByUid(user.getUid());
                 }
             }
         }
         return null;
 
     }
+    // 返回用户信息
+//    public User login(HttpServletRequest request,
+//                      HttpServletResponse response,
+//                      String email, String password) {
+//
+//        System.out.println("数据" + request.getParameter("email"));
+//        Cookie cookie = new Cookie("email","dzzxjl126.com");
+//        response.addCookie(cookie);
+//        response.addCookie(new Cookie("xingbie", "nan"));
+//        System.out.println(request.getSession().getId());
+//        Iterator<User> iterator = (Iterator<User>) this.userRepository.findAll().iterator();
+//        while (iterator.hasNext()) {
+//            User user = (User) iterator.next();
+//            if(user.getEmail().equals(email)) {
+//                if (user.getPassword().equals(password)) {
+//                    return user;
+//                }
+//            }
+//        }
+//        return null;
+//
+//    }
 
 
 }
