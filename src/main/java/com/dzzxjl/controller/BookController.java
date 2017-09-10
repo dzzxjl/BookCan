@@ -57,6 +57,7 @@ public class BookController {
     public List<Book> getHasReadBook(int status) {
         List<Book> list = null;
         return (List<Book>) this.bookRepository.findHasReadBook(status);
+
     }
 
     @RequestMapping("/bookmore")
