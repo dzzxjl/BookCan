@@ -17,6 +17,8 @@ public class CommentController {
 
     @Autowired
     CommentRepository commentRepository;
+//    Comment comment;
+//    Predicate predicate = comment.getContent().equalsIgnoreCase("haha");
 
     @RequestMapping("/getComment")
     public List<Comment> getComment() {

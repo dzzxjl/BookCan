@@ -33,6 +33,7 @@
         </dependency>
 
         <!--Spring boot jpa-->
+        <!-- 涉及到jpa的应该只有这一部分 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
